@@ -2,7 +2,7 @@
 
 This was an experiment I did to test the feasibility of making a simple build system in the style of Bazel - with precise dependency tracking.
 
-This version uses Deno to describe the build graph and Rust to build it. I have a separate project to provide filesystem sandboxing so dependency links can't be missed.
+This version uses Deno to describe the build graph and Rust to build it. I have a separate project (see the `sandbox` directory) to provide filesystem sandboxing so dependency links can't be missed.
 
 Deno turned out to be a poor choice. One of the problems with build systems is that in general you can't know the full build graph (DAG) before you start building. For example if you generate come C++ code you're probably going to need to scan that code to see which headers it uses. Some of those might be generated too!
 
